@@ -35,6 +35,7 @@ public class PapagoInfoDAOimpl implements PapagoInfoDAO {
 	@Override
 	public List<PapagoInfoVO> selectPapagoVOList(PapagoInfoVO param) {
 		SqlSession ss = ssf.openSession();
+		
 		try {
 			return ss.selectList("com.ys.papago.PapagoInfoMapper.selectPapagoInfoList");
 		} catch (Exception e) {

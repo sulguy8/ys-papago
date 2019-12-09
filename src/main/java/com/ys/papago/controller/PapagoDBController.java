@@ -24,8 +24,8 @@ public class PapagoDBController {
 	
 	@GetMapping("/papago/get")
 	public List<PapagoInfoVO> getPapagoList(@ModelAttribute PapagoInfoVO param){
-		
-		return ps.getPapagoVOList(null);
+		System.out.println(ps.getPapagoVOList(param));
+		return ps.getPapagoVOList(param);
 	}
 	
 	@PostMapping("/papago/insert") 

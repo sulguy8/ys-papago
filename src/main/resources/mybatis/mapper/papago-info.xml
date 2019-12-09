@@ -4,9 +4,8 @@
 
 <mapper namespace="com.ys.papago.PapagoInfoMapper">
 	
-	<select id="selectPapagoInfoList">
+	<select id="selectPapagoInfoList" resultType="com.ys.papago.vo.PapagoInfoVO">
 		select*from papago_info
-
 	</select>
 	
 	<select id="selectPapagoInfo">
