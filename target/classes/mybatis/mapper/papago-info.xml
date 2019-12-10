@@ -3,21 +3,26 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ys.papago.PapagoInfoMapper">
-	
 	<select id="selectPapagoInfoList" resultType="com.ys.papago.vo.PapagoInfoVO">
 		select*from papago_info
 	</select>
 	
-	<select id="selectPapagoInfo">
+	<select id="selectPapagoInfo" resultType="com.ys.papago.vo.PapagoInfoVO">
 		select*from papago_info
 		where pi_target=rpad(#{piTarget},6,' ')
 		and pi_source=rpad(#{piSource},6,' ')
-		and pi_test=#{piText}
+		and pi_text=#{piText}
 	</select>
 	
-	<insert id="insertPapagoInfo">
+	<insert id="insertPapagoInfo" parameterType="com.ys.papago.vo.PapagoInfoVO">
 		insert into papago_info(pi_num,PI_SOURCE,PI_TARGET,PI_TEXT,PI_RESULT,PI_CNT)
 		values(seq_pi_num.nextval, #{piSource}, #{piTarget}, #{piText}, #{piResult}, 1)
 	</insert>
 
+	<update id="updatePapagoInfoForCnt" parameterType="com.ys.papago.vo.PapagoInfoVO">
+		update papago_info
+		set pi_cnt = pi_cnt+1
+		where
+		pi_num=#{piNum}
+	</update>
 </mapper>

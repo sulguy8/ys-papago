@@ -21,6 +21,7 @@ public class PapagoController {
 	
 	@PostMapping("/papago")
 	public Message doTranslate(@ModelAttribute TransVO tvo) {
+		
 		log.info("tvo=>{}", tvo);
 		return ps.doTranslate(tvo);
 	}

@@ -77,8 +77,33 @@ public class PapagoInfoDAOimpl implements PapagoInfoDAO {
 
 	@Override
 	public PapagoInfoVO selectPapagoInfo(PapagoInfoVO user) {
-		// TODO Auto-generated method stub
+		SqlSession ss = ssf.openSession();
+		try {
+			return ss.selectOne("com.ys.papago.PapagoInfoMapper.selectPapagoInfo", user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			ss.commit();
+			ss.close();
+
+		}
 		return null;
 	}
 
+	@Override
+	public int updatePapagoInfoCnt(PapagoInfoVO user) {
+		
+		System.out.println(user);
+		SqlSession ss = ssf.openSession();
+		try {
+			return ss.update("com.ys.papago.PapagoInfoMapper.updatePapagoInfoForCnt", user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			ss.commit();
+			ss.close();
+
+		}
+		return 0;
+	}
 }

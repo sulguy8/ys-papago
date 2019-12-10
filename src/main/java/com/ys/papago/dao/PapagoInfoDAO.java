@@ -11,4 +11,6 @@ public interface PapagoInfoDAO {
 	public int updatePapagoInfo(PapagoInfoVO user);
 	public int deletePapagoInfo(PapagoInfoVO user);
 	public PapagoInfoVO selectPapagoInfo(PapagoInfoVO user);
+	public int updatePapagoInfoCnt(PapagoInfoVO user);
+	
 }
